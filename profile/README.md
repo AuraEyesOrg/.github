@@ -86,6 +86,58 @@ Handles Machine Learning workloads, including **Retinal Vessel Segmentation**, a
 
 ---
 
+## System Flow (Kiến trúc hệ thống)
+
+```mermaid
+graph TD
+    Client[Client / Web Browser]
+    
+    subgraph "AuraEyes FE (React/Vite)"
+        UI[User Interface]
+        Viewer[Retinal Image Viewer]
+    end
+    
+    subgraph "AuraEyes BE (.NET 8)"
+        API[API Gateway & Controllers]
+        Auth[Authentication & Security]
+        Logic[Business Logic & Services]
+        DB[(PostgreSQL Database)]
+    end
+    
+    subgraph "AURA AI (Python)"
+        AI_API[FastAPI Interface]
+        Model[PyTorch Segmentation Model]
+    end
+    
+    Client <-->|HTTPS/WSS| UI
+    UI <-->|REST API| API
+    Viewer -->|DICOM / Images| API
+    
+    API <--> Auth
+    API <--> Logic
+    Logic <--> DB
+    
+    Logic <-->|HTTP / Request| AI_API
+    AI_API <--> Model
+```
+
+---
+
+## Demo Video (Trải nghiệm tính năng)
+
+<div align="center">
+
+<video width="100%" controls>
+  <source src="../assets/homepage.mp4" type="video/mp4">
+  Trình duyệt của bạn không hỗ trợ thẻ video.
+</video>
+<br/>
+<em>(Video Demo - Trải nghiệm các tính năng cốt lõi của AURA Eyes)</em>
+
+</div>
+
+---
+
 ## Team (Đội ngũ dự án)
 
 ### Supervisors (Giảng viên hướng dẫn)
@@ -95,12 +147,31 @@ Handles Machine Learning workloads, including **Retinal Vessel Segmentation**, a
 | **Co-Supervisor** | Trương Hoàng Vinh |
 
 ### Students (Sinh viên thực hiện)
-| Role | Full Name | Contact |
-| --- | --- | --- |
-| **Leader** | Hoàng Quốc An | anhqse181520@fpt.edu.vn |
-| **Member** | Trần Đình Thịnh | thinhtdse181531@fpt.edu.vn |
-| **Member** | Đào Công An Phước | phuocdcase180581@fpt.edu.vn |
-| **Member** | Nguyễn Việt | vietnse180672@fpt.edu.vn |
+
+<table align="center">
+  <tr>
+    <td align="center" width="25%">
+      <img src="https://avatars.githubusercontent.com/u/165766167?v=4" width="120px;" height="120px;" alt="Hoàng Quốc An" style="border-radius: 50%; object-fit: cover;"/><br />
+      <b>Hoàng Quốc An</b><br />Leader<br />
+      <a href="mailto:anhqse181520@fpt.edu.vn">anhqse181520@fpt.edu.vn</a>
+    </td>
+    <td align="center" width="25%">
+      <img src="https://avatars.githubusercontent.com/u/156297768?v=4" width="120px;" height="120px;" alt="Trần Đình Thịnh" style="border-radius: 50%; object-fit: cover;"/><br />
+      <b>Trần Đình Thịnh</b><br />Member<br />
+      <a href="mailto:thinhtdse181531@fpt.edu.vn">thinhtdse181531@fpt.edu.vn</a>
+    </td>
+    <td align="center" width="25%">
+      <img src="https://avatars.githubusercontent.com/u/153256952?v=4" width="120px;" height="120px;" alt="Đào Công An Phước" style="border-radius: 50%; object-fit: cover;"/><br />
+      <b>Đào Công An Phước</b><br />Member<br />
+      <a href="mailto:phuocdcase180581@fpt.edu.vn">phuocdcase180581@fpt.edu.vn</a>
+    </td>
+    <td align="center" width="25%">
+      <img src="https://avatars.githubusercontent.com/u/157226403?v=4" width="120px;" height="120px;" alt="Nguyễn Việt" style="border-radius: 50%; object-fit: cover;"/><br />
+      <b>Nguyễn Việt</b><br />Member<br />
+      <a href="mailto:vietnse180672@fpt.edu.vn">vietnse180672@fpt.edu.vn</a>
+    </td>
+  </tr>
+</table>
 
 ---
 
