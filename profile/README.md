@@ -126,9 +126,7 @@ graph TD
 ## Demo Video (Trải nghiệm tính năng)
 
 <div align="center">
-
-<video width="100%" controls>
-  <source src="https://github.com/user-attachments/assets/4fac4b26-d89d-4199-920f-80e81fc7467b" type="video/mp4">
+  <video src="https://github.com/user-attachments/assets/4fac4b26-d89d-4199-920f-80e81fc7467b" type="video/mp4">
   Trình duyệt của bạn không hỗ trợ thẻ video.
 </video>
 <br/>
